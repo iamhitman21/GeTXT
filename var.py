@@ -10,13 +10,34 @@ _deployment_env = True
 _active_print = True
 
 _model_arg_1 = [
-]
+                'Admiration',
+                'Adoration',
+                'Aesthetic Appreciation',
+                'Amusement',
+                'Anger',
+                'Anxiety',
+                'Awe',
+                'Awkwardness']
 
-_model_arg_2 = [
-]
+_model_arg_2=[
+                'Boredom',
+                'Calmness',
+                'Confusion',
+                'Craving',
+                'Disgust',                
+                'Excitement',
+                'Fear']
 
 _model_arg_3 = [
-]
+                'Horror',
+                'Interest',
+                'Joy',                
+                'Romance',
+                'Sadness',
+                'Satisfaction',
+                'Surprise']
+
+
 
 
 if _deployment_env:
