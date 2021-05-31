@@ -9,14 +9,25 @@ except Exception as e:
 _deployment_env = True
 _active_print = True
 
+
 _model_arg_1 = [
-]
-
-_model_arg_2 = [
-]
-
-_model_arg_3 = [
-]
+                "Call center Reviews",
+                "New Product Review",
+                "Product Complaints",
+                "Customer Service Center"]
+_model_arg_2=[
+                "Customer HelpCenter",
+                "Amazon Product Reviews",
+                "Service Reviews",
+                "Company’s Reputation"]
+_model_arg_3=[
+                "Product Comment",
+                "Marriage",
+                "Birthday",
+                "Happy",
+                "Sad",
+                "Alone", 
+                "Fear"]
 
 
 if _deployment_env:
