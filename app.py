@@ -108,5 +108,4 @@ def _main():
 
 # Main Method
 if __name__ == '__main__':
-    print("App Starting...")
     exit("Exit with " + _main())   
