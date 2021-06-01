@@ -1,18 +1,18 @@
-try:    
+try:
     from googletrans import Translator
     from google_trans_new import google_translator
-    from textblob import TextBlob    
+    from textblob import TextBlob
     import goslate
     import demoji
     import re
     import string
-    from time import sleep    
+    from time import sleep
     import var
-    
+
     # run only once after installing module
     if var._deployment_env == True:
         demoji.download_codes()
-except Exception as e:    
+except Exception as e:
     exit("Exception: " + str(e))
 
 
@@ -21,60 +21,63 @@ class MTS(object):
     def __init__(self):
         # translator Initiated
         self.__translator = Translator()
-        self.__google_translator = google_translator()   
-        sleep(var._sleep_time_small) #small time
+        self.__google_translator = google_translator()
+        sleep(var._sleep_time_small)  # small time
         var._debug and print("MTS" + var._init_msg)
 
-    def _translator(self, _text = None, _lang="en"):
+    def _translator(self, _text=None, _lang="en"):
         if _text == None:
             return None
         var._debug and print("Text Cleaning !!")
         _text = self._clean(_text)
-        sleep(var._sleep_time_small) #small time
-        
-        var._debug and print("Text Demoj !!")        
+        sleep(var._sleep_time_small)  # small time
+
+        var._debug and print("Text Demoj !!")
         _text = self._demojis(_text, True)
-        sleep(var._sleep_time_small) #small time
-        
+        sleep(var._sleep_time_small)  # small time
+
         var._debug and print("Translating...")
         _text = str(TextBlob(_text).correct())
-        sleep(var._sleep_time_small) #small time
+        sleep(var._sleep_time_small)  # small time
         try:
             _translated = self.__translator.translate(_text, dest=_lang)
             _text = _translated.text
             var._debug and print("Intermediate Translation: ", _text)
-            
-            sleep(var._sleep_time_small) #small time
+
+            sleep(var._sleep_time_small)  # small time
             _translated = self.__translator.translate(_text, dest="en")
             _text = _translated.text
             var._debug and print("Intermediate Translation: ", _text)
         except:
             try:
-                _text = self.__google_translator.translate(_text, lang_tgt=_lang)
+                _text = self.__google_translator.translate(
+                    _text, lang_tgt=_lang)
                 var._debug and print("Intermediate Translation: ", _text)
-                sleep(var._sleep_time_small) #small time
-                _text = self.__google_translator.translate(_text, lang_tgt="en")
+                sleep(var._sleep_time_small)  # small time
+                _text = self.__google_translator.translate(
+                    _text, lang_tgt="en")
                 var._debug and print("Intermediate Translation: ", _text)
             except:
                 try:
-                    _gs = goslate.Goslate()                    
+                    _gs = goslate.Goslate()
                     _text = _gs.translate(_text, 'en')
                     var._debug and print("Intermediate Translation: ", _text)
                 except:
                     try:
-                        _text = str(TextBlob(_text).translate(to='en'))   
-                        var._debug and print("Text Intermediate Translation: ", _text)          
+                        _text = str(TextBlob(_text).translate(to='en'))
+                        var._debug and print(
+                            "Text Intermediate Translation: ", _text)
                     except:
-                        var._debug and print("Exception: All Models Failed!!")                         
-        # Base Models        
+                        var._debug and print("Exception: All Models Failed!!")
+        # Base Models
         _text = str(TextBlob(_text).correct())
-        var._debug and print("Text Correct: ", _text)          
+        var._debug and print("Text Correct: ", _text)
         _sentiment = TextBlob(_text).sentiment.polarity
-        var._debug and print("Translation Sentiment: ", _sentiment) 
-        sleep(var._sleep_time_small) #small time
-        
-        var._debug and print("MTS" + var._complete_msg)        
-        return  _text, _sentiment
+        var._debug and print("Translation Sentiment: ", _sentiment)
+        sleep(var._sleep_time_small)  # small time
+
+        var._debug and print("MTS" + var._complete_msg)
+        return _text, _sentiment
 
     # Cleans text message
     def _clean(self, preprocess_text):
@@ -123,7 +126,7 @@ class MTS(object):
             preprocess_text = re.sub(r'https', ' ', preprocess_text)
             preprocess_text = re.sub(r'url', ' ', preprocess_text)
             preprocess_text = re.sub(r'USER_MENTION', ' ', preprocess_text)
-            preprocess_text = preprocess_text.strip('    ')            
+            preprocess_text = preprocess_text.strip('    ')
 
             return preprocess_text
 

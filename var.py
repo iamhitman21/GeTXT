@@ -10,12 +10,24 @@ _deployment_env = True
 _active_print = True
 
 _model_arg_1 = [
+    'Admiration',
+                'Adoration',
+                'Aesthetic Appreciation',
+                'Amusement',
 ]
 
 _model_arg_2 = [
+    'Admiration',
+                'Adoration',
+                'Aesthetic Appreciation',
+                'Amusement',
 ]
 
 _model_arg_3 = [
+    'Admiration',
+                'Adoration',
+                'Aesthetic Appreciation',
+                'Amusement',
 ]
 
 

@@ -29,6 +29,7 @@ class DataCleaning(object):
                 self._db._delete({"_id": _id})
                 sleep(var._sleep_time_small)  # small time
                 var._active_print and print("Removing Id: ", _id)
+
             sleep(var._sleep_time_small)  # small time
             var._active_print and print(
                 "Text: ", _res['_id']['_translated_text'])
@@ -84,6 +85,7 @@ class DataCollection(object):
         var._debug and print("Data Collecting!!")
         sleep(var._sleep_time_small)  # small time
         tweepy = Tweepy()
+        var._active_print and print("Fetching For: ", _fetch_query)
         tweepy._fetch(_fetch_query)
         sleep(var._sleep_time_small)  # small time
         var._debug and print("Data Collecting" + var._complete_msg)
