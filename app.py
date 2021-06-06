@@ -51,7 +51,6 @@ def _main():
             var._debug and print("A Thread => ", threading.active_count())
 
             # Main Thread
-
             var._active_print and print("Main Thread to Work:")
             sleep(var._sleep_time_small)  # small time
             dataCleaning._remove_duplicates()
@@ -75,6 +74,7 @@ def _main():
             var._debug and print("Closing Threads:", threading.active_count())
             sleep(var._sleep_time_small)  # small time
             thread.join()
+            
         try:
             for thread in threading.enumerate():
                 if thread.name != "MainThread":
