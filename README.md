@@ -15,6 +15,16 @@
 'A_SEC' => ' '
 'MONGO_URI' => ' '
 ```
+And Add key.py
+```python 
+
+_model_arg_1 = [
+                "".""]
+_model_arg_2=[
+               "","" ]
+_model_arg_3=[
+               "","" ]
+```
 5. Deploy the main Branch
 6. Once Build Success
 7. Goto `Overview` =? `Dyno formation` => `Configure Dynos` => Free Dynos and Start the switch.
@@ -38,6 +48,15 @@
     _auth_secret = ""
     # Mongo DB URI
     _mongo_uri = ""
+
+    
+_model_arg_1 = [
+                "".""]
+_model_arg_2=[
+               "","" ]
+_model_arg_3=[
+               "","" ]
+               
 ```
 4. Go to var.py and "_deployment_env = False"
 
