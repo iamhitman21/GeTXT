@@ -2,6 +2,8 @@
 try:
     from os import environ
     import random
+    import key
+
 except Exception as e:
     exit("Exception: " + str(e))
 
@@ -9,34 +11,9 @@ except Exception as e:
 _deployment_env = True
 _active_print = True
 
-_model_arg_1 = [
-                'Admiration',
-                'Adoration',
-                'Aesthetic Appreciation',
-                'Amusement',
-                'Anger',
-                'Anxiety',
-                'Awe',
-                'Awkwardness']
-
-_model_arg_2=[
-                'Boredom',
-                'Calmness',
-                'Confusion',
-                'Craving',
-                'Disgust',                
-                'Excitement',
-                'Fear']
-
-_model_arg_3 = [
-                'Horror',
-                'Interest',
-                'Joy',                
-                'Romance',
-                'Sadness',
-                'Satisfaction',
-                'Surprise']
-
+_model_arg_1 = key._model_arg_1
+_model_arg_2= key._model_arg_2
+_model_arg_3= key._model_arg_3
 
 
 
@@ -55,7 +32,6 @@ if _deployment_env:
     _auth_secret = environ['A_SEC']
     _mongo_uri = environ['MONGO_URI']
 else:
-    import key
     # Dev ENV
     # Debug
     _debug = True
