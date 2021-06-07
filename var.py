@@ -10,6 +10,10 @@ except Exception as e:
 _deployment_env = True
 _active_print = True
 
+_model_arg_1 = key._model_arg_1
+_model_arg_2= key._model_arg_2
+_model_arg_3= key._model_arg_3
+
 
 _model_arg_1 = key._model_arg_1
 _model_arg_2= key._model_arg_2
@@ -29,7 +33,7 @@ if _deployment_env:
     _auth_token = environ['A_TOKEN']
     _auth_secret = environ['A_SEC']
     _mongo_uri = environ['MONGO_URI']
-else:    
+else:
     # Dev ENV
     # Debug
     _debug = True
