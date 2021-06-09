@@ -31,6 +31,7 @@ if _deployment_env:
     _mongo_uri = environ['MONGO_URI']
 else:    
     # Dev ENV
+    import keys
     # Debug
     _debug = True
     # Sleep
@@ -39,11 +40,11 @@ else:
     _tweet_max_count = 5
     _tweet_limit = 5
     # Define Variables Keys
-    _consumer_key = key._consumer_key
-    _consumer_secret = key._consumer_secret
-    _auth_token = key._auth_token
-    _auth_secret = key._auth_secret
-    _mongo_uri = key._mongo_uri
+    _consumer_key = keys._consumer_key
+    _consumer_secret = keys._consumer_secret
+    _auth_token = keys._auth_token
+    _auth_secret = keys._auth_secret
+    _mongo_uri = keys._mongo_uri
 
 _min_text_len = 150
 _offset = int(random.randint(0, 500))
